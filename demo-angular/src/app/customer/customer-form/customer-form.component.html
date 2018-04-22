@@ -1,0 +1,47 @@
+<h5>Add customer</h5>
+<div>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="row">
+      <div>
+        <input id="name" type="text"
+               [(ngModel)]="customer.name" formControlName="name"
+               [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid">
+        <label for="name"
+               [class.active]="customer.name"
+               data-error="Name is required and needs to contain at least 3 chars">
+          Name
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <input id="email" type="email"
+               [(ngModel)]="customer.email" formControlName="email"
+               [class.invalid]="form.controls['email'].touched && !form.controls['email'].valid">
+        <label for="email"
+               [class.active]="customer.email"
+               data-error="Invalid Email">
+          Email
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <input id="phone" type="text"
+               [(ngModel)]="customer.phone" formControlName="phone">
+        <label for="phone" [class.active]="customer.phone">Phone</label>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <input id="address" type="text"
+               [(ngModel)]="customer.address" formControlName="address">
+        <label for="address" [class.active]="customer.address">Address</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>

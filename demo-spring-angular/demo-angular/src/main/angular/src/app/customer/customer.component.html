@@ -1,0 +1,33 @@
+<h1>
+  All customers</h1>
+<a routerLink="/customer/new">New customer</a>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let customer of customers">
+    <td>{{ customer.id }}</td>
+    <td>{{ customer.name }}</td>
+    <td>{{ customer.email }}</td>
+    <td>{{ customer.phone }}</td>
+    <td>{{ customer.address }}</td>
+    <td>
+      <a [routerLink]="['/customer', customer.id]">
+        <button>
+          Edit
+        </button>
+      </a>
+    </td>
+    <td>
+      <button (click)="deleteCustomer(customer)">
+        delete
+      </button>
+    </td>
+  </tr>
+</table>
